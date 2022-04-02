@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/bash .... for FreeBSD change path to /usr/local/bin/bash
 
 # ApacheSum - summarize apache log file for unique visits per month
 
