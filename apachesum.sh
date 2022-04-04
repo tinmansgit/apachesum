@@ -1,12 +1,12 @@
 #!/usr/bin/bash 
 # for FreeBSD change path to /usr/local/bin/bash
 
-# ApacheSum - summarize apache log file for unique visits per month
+# ApacheSum - summarize apache log file
 
 LOG_FILE="$1"
 
 echo " "
-echo "Title - Year Domain.com"
+echo "Apache Log Summary Report - Year Domain.com"
 echo " "
 
 echo "MULTIMEDIA"
@@ -98,3 +98,4 @@ echo "November	" $novsum
 decsum=`awk '{print $1,$4}' $LOG_FILE | grep Dec | cut -d" " -f1 | uniq -c | wc -l`
 echo "December	" $decsum
 echo " "
+
