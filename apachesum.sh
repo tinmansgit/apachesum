@@ -10,17 +10,30 @@ echo "Apache Log Summary Report - Year Domain.com"
 echo " "
 
 echo "MULTIMEDIA"
-mp3sum=`cat $LOG_FILE | grep .mp3 | wc -l`
+mp3sum=`cat $LOG_FILE | grep mp3 | wc -l`
 echo "MP3 Download Count " $mp3sum
 echo " "
 
-mp4sum=`cat $LOG_FILE | grep .mp4 | wc -l`
+mp3list=`awk '{ print $7 }' $LOG_FILE | grep mp3 | sort -n | uniq -c | sort -nr`
+echo "$mp3list"
+echo " "
+
+mp4sum=`cat $LOG_FILE | grep mp4 | wc -l`
 echo "MP4 Download Count " $mp4sum
 echo " "
 
-movsum=`cat $LOG_FILE | grep .mov | wc -l`
-echo "MOV Download Count " $movsum
+mp4list=`awk '{ print $7 }' $LOG_FILE | grep mp4 | sort -n | uniq -c | sort -nr`
+echo "$mp4list"
 echo " "
+
+mpegsum=`cat $LOG_FILE | grep mpeg | wc -l`
+echo "MPEG Download Count " $mpegsum
+echo " "
+
+mpeglist=`awk '{ print $7 }' $LOG_FILE | grep mpeg | sort -n | uniq -c | sort -nr`
+echo "$mpeglist"
+echo " "
+
 
 echo "TOTAL MONTHLY VISITS"
 jansum=`awk '{print $1,$4}' $LOG_FILE | grep Jan | cut -d" " -f1 | wc -l`
@@ -98,4 +111,3 @@ echo "November	" $novsum
 decsum=`awk '{print $1,$4}' $LOG_FILE | grep Dec | cut -d" " -f1 | uniq -c | wc -l`
 echo "December	" $decsum
 echo " "
-
