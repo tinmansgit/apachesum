@@ -10,27 +10,27 @@ echo "Apache Log Summary Report - Year Domain.com"
 echo " "
 
 echo "MULTIMEDIA"
-mp3sum=`cat $LOG_FILE | grep mp3 | wc -l`
+mp3sum=`cat $LOG_FILE | grep -a .mp3 | wc -l`
 echo "MP3 Download Count " $mp3sum
 echo " "
 
-mp3list=`awk '{ print $7 }' $LOG_FILE | grep mp3 | sort -n | uniq -c | sort -nr`
+mp3list=`awk '{ print $7 }' $LOG_FILE | grep -a .mp3 | sort -n | uniq -c | sort -nr`
 echo "$mp3list"
 echo " "
 
-mp4sum=`cat $LOG_FILE | grep mp4 | wc -l`
+mp4sum=`cat $LOG_FILE | grep -a .mp4 | wc -l`
 echo "MP4 Download Count " $mp4sum
 echo " "
 
-mp4list=`awk '{ print $7 }' $LOG_FILE | grep mp4 | sort -n | uniq -c | sort -nr`
+mp4list=`awk '{ print $7 }' $LOG_FILE | grep -a .mp4 | sort -n | uniq -c | sort -nr`
 echo "$mp4list"
 echo " "
 
-mpegsum=`cat $LOG_FILE | grep mpeg | wc -l`
+mpegsum=`cat $LOG_FILE | grep -a .mpeg | wc -l`
 echo "MPEG Download Count " $mpegsum
 echo " "
 
-mpeglist=`awk '{ print $7 }' $LOG_FILE | grep mpeg | sort -n | uniq -c | sort -nr`
+mpeglist=`awk '{ print $7 }' $LOG_FILE | grep -a .mpeg | sort -n | uniq -c | sort -nr`
 echo "$mpeglist"
 echo " "
 
