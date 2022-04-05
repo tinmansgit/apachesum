@@ -1,5 +1,5 @@
 #!/usr/bin/bash 
-# FreeBSD users, change path to /usr/local/bin/bash
+# for FreeBSD change path to /usr/local/bin/bash
 
 # ApacheSum - summarize apache log file
 
@@ -10,15 +10,15 @@ echo "Apache Log Summary Report - Year Domain.com"
 echo " "
 
 echo "MULTIMEDIA"
-mp3sum=`cat $LOG_FILE | grep mp3 | wc -l`
+mp3sum=`cat $LOG_FILE | grep .mp3 | wc -l`
 echo "MP3 Download Count " $mp3sum
 echo " "
 
-mp4sum=`cat $LOG_FILE | grep mp4 | wc -l`
+mp4sum=`cat $LOG_FILE | grep .mp4 | wc -l`
 echo "MP4 Download Count " $mp4sum
 echo " "
 
-movsum=`cat $LOG_FILE | grep mov | wc -l`
+movsum=`cat $LOG_FILE | grep .mov | wc -l`
 echo "MOV Download Count " $movsum
 echo " "
 
